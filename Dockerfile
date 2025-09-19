@@ -51,16 +51,6 @@ RUN mkdir -p models/checkpoints models/loras models/vae models/diffusion_models/
 RUN mkdir -p models/loras/Qwen models/loras/Wan
 
 # --- Add your custom models and nodes here ---
-# Download all 4 Wan 2.2 14B models
-RUN wget -P models/diffusion_models/Wan/ https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_t2v_low_noise_14B_fp8_scaled.safetensors
-RUN wget -P models/diffusion_models/Wan/ https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_t2v_high_noise_14B_fp8_scaled.safetensors
-RUN wget -P models/diffusion_models/Wan/ https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors
-RUN wget -P models/diffusion_models/Wan/ https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors
-
-# Download Qwen Image models
-RUN wget -P models/diffusion_models/Qwen/ https://huggingface.co/Qwen/Qwen-VL-Chat/resolve/main/qwen_vl_chat.fp16.safetensors
-RUN wget -P models/text_encoders/Qwen/ https://huggingface.co/Qwen/Qwen-VL-Chat/resolve/main/qwen_vl_chat.fp16.safetensors
-RUN wget -P models/vae/Qwen/ https://huggingface.co/Qwen/Qwen-VL-Chat/resolve/main/qwen_vl_vae.fp16.safetensors
 
 # Download LoRAs for Qwen
 RUN wget -O models/loras/Qwen/ https://civitai.com/api/download/models/2106185?type=Model&format=SafeTensor
@@ -79,3 +69,4 @@ EXPOSE 8188 9090
 # Set the entrypoint to run ComfyUI when the container starts.
 # The PATH is set to the venv, so 'python' will point to the correct version.
 ENTRYPOINT ["python", "main.py", "--listen", "0.0.0.0", "--port", "8188", "--use-pytorch-compile"]
+
