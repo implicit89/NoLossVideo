@@ -54,7 +54,7 @@ RUN mkdir -p models/loras/Qwen models/loras/Wan
 
 # Download LoRAs for Qwen
 RUN wget -O models/loras/Qwen/ https://civitai.com/api/download/models/2106185?type=Model&format=SafeTensor
-RUN wget -O models/loras/Qwen/ https://civitai.com/api/download/models/1886273
+RUN wget -O models/loras/Qwen/ https://civitai.com/api/download/models/2171888?type=Model&format=SafeTensor
 RUN wget -O models/loras/Qwen/ https://civitai.com/api/download/models/2207719?type=Model&format=SafeTensor
 
 # Download LoRA for Wan
@@ -69,4 +69,5 @@ EXPOSE 8188 9090
 # Set the entrypoint to run ComfyUI when the container starts.
 # The PATH is set to the venv, so 'python' will point to the correct version.
 ENTRYPOINT ["python", "main.py", "--listen", "0.0.0.0", "--port", "8188", "--use-pytorch-compile"]
+
 
