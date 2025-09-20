@@ -68,6 +68,7 @@ EXPOSE 8188 9090
 
 # Set the entrypoint to run ComfyUI when the container starts.
 # The PATH is set to the venv, so 'python' will point to the correct version.
-ENTRYPOINT ["python", "main.py", "--listen", "0.0.0.0", "--port", "8188", "--use-pytorch-compile"]
+ENTRYPOINT ["python", "main.py", "--listen", "0.0.0.0", "--port", "8188", "--use-sage-attention"]
+
 
 
